@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		{# Boostrap #}
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+		{# Encodage des caractères pour le web #}
+		<meta
+		charset="UTF-8">
+
+		{# Minimum de responsive design à toujours mettre en place #}
+		<meta
+		name="viewport" content="width=device-width, initial-scale=1.0">
+
+		{# Titre de la page #}
+		<title>
+			{% block title %}{% endblock %}
+			- Ruben Spencer Desir
+		</title>
+
+		{# SEO #}
+		{# Description de la page #}
+		<meta
+		name="description" content="{% block description %}{% endblock %}">
+
+		{# Mots-clés #}
+		<meta
+		name="keywords" content="{% block keywords %}{% endblock %}">
+
+		{# Favicon #}
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+
+		{% block stylesheets %}
+			{# 'app' must match the first argument to addEntry() in webpack.config.js #}
+			{{ encore_entry_link_tags('app') }}
+
+			<!-- Renders a link tag (if your module requires any CSS)
+															                 <link rel="stylesheet" href="/build/app.css"> -->
+		{% endblock %}
+		{# Boostrap #}
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+
+			<!-- Renders app.js & a webpack runtime.js file
+															                <script src="/build/runtime.js" defer></script>
+															                <script src="/build/app.js" defer></script>
+															                See note below about the "defer" attribute -->
+		{% endblock %}
+
+
+	</head>
+	<body
+		class="body-visitor">
+
+		{# Navbar #}
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="{{path('visitor.welcome.index')}}">RD</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="{{path('visitor.welcome.index')}}">Acceuil</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Qui suis-je?</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{path('visitor.blog.index')}}">Blog</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{path('visitor.contact.create')}}">Contact</a>
+						</li>
+					</ul>
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="#">Connexion</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Inscription</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		{# Main qui est le contenue specifique à chaque page #}
+		{% block main %}{% endblock %}
+
+		{# Footer #}
+		<footer class="text-centergithub-footer bg-body-tertiary">
+			<p>DWWM</p>
+		</footer>
+	</body>
+</html>
