@@ -1,3 +1,7 @@
+// Abstracs
+@import "./abstracts/variables";
+
+
 // the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
 
@@ -7,4 +11,4 @@
 
 
 // Themes
-@import "./themes/base_visitor";
+@import "./themes/_base_visitor.html";
